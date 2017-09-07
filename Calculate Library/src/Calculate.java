@@ -45,7 +45,7 @@ public class Calculate {
 	}
 	public static String foil(int variablea, int variableb, int variablea2, int variableb2, String variable) {
 		
-		return ((variablea * variablea2) + variable + "^2" + "+" + ((variablea * variableb2) + (variableb * variablea2)) + variable + (variableb * variableb2));
+		return ((variablea * variablea2) + variable + "^2" + "+" + ((variablea * variableb2) + (variableb * variablea2)) + variable + "+" + (variableb * variableb2));
 		
 	}	
 }
