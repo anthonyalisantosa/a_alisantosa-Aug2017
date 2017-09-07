@@ -11,7 +11,8 @@ public class DoMath {
 		System.out.println(Calculate.toDegrees(3.14159));
 		System.out.println(Calculate.discriminant(4, 15, 8));
 		System.out.println(Calculate.toImproperFrac(4, 3, 5));
-		System.out.println(Calculate.toMixedNum(23,  5));
+		System.out.println(Calculate.toMixedNum(23, 5));
+		System.out.println(Calculate.foil(2, 3, 6, -7, "n"));
 
 	
 	}
