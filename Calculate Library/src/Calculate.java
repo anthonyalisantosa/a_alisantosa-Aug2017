@@ -139,6 +139,17 @@ public class Calculate {
 		}
 		return inputvariable;
 	}
+		
+	
+	public static boolean isPrime(int input) {
+		
+		if(input < 2) {
+			return false;
+		}
+		
+		if(input >=2))			
+		}
+	}
 	
 }
 
