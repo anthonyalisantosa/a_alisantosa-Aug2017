@@ -18,6 +18,7 @@ public class DoMath {
 		System.out.println(Calculate.max(4, 198087.23112));
 		System.out.println(Calculate.max(7000, 98, 3));
 		System.out.println(Calculate.min(7, 123));
+		System.out.println(Calculate.round2(8.84509128470849012840912840812048194));
 		
 
 	

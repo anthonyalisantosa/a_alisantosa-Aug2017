@@ -112,7 +112,14 @@ public class Calculate {
 	
 	public static double round2(double inputvariable) {
 		
-		if (inputvariable )
+		double newNum = (inputvariable * 100 ) % 1;
+			if (newNum >= .5) {
+				return ((inputvariable * 100) + 1 - newNum)/100;
+			}
+			
+			else {
+				return (inputvariable * 100 - newNum)/100;
+			}
 	}
 }
 
