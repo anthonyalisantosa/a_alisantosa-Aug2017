@@ -48,7 +48,75 @@ public class Calculate {
 		return ((variablea * variablea2) + variable + "^2" + "+" + ((variablea * variableb2) + (variableb * variablea2)) + variable + "+" + (variableb * variableb2));
 		
 	}	
+	
+	public static boolean isDivisibleBy(int numerator, int denominator) {
+		
+		if (numerator % denominator == 0) {
+			return (true);
+		}
+		else {
+			return (false);
+		}
+		
+	}
+	
+	public static double absValue(double inputvariable) {
+		
+		if (inputvariable < 0) {
+			return (inputvariable * -1);
+		}
+		
+		else {
+			return (inputvariable);
+		}
+	}
+	
+	public static double max(double inputvariable1, double inputvariable2) {
+		
+		if(inputvariable1 < inputvariable2) {
+			return(inputvariable2);
+		}
+		
+		else {
+			return(inputvariable1);
+		}
+		
+	}
+	
+	public static double max(double inputvariable1, double inputvariable2, double inputvariable3) {
+		
+		if (inputvariable1 < inputvariable2) {
+			if (inputvariable2 < inputvariable3) {
+				return (inputvariable3);
+			}
+			else {
+				return (inputvariable2);
+			}
+		}
+		else {
+			return (inputvariable1);
+		}
+			
+	}
+	
+	public static int min(int inputvariable1, int inputvariable2) {
+		
+		if (inputvariable1 < inputvariable2) {
+			return (inputvariable1);
+		}
+		
+		else {
+			return (inputvariable2);
+		}	
+	}
+	
+	public static double round2(double inputvariable) {
+		
+		if (inputvariable )
+	}
 }
+
+	
 	
 
 

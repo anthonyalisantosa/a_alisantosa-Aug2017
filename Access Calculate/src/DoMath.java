@@ -13,6 +13,12 @@ public class DoMath {
 		System.out.println(Calculate.toImproperFrac(4, 3, 5));
 		System.out.println(Calculate.toMixedNum(23, 5));
 		System.out.println(Calculate.foil(2, 3, 6, -7, "n"));
+		System.out.println(Calculate.isDivisibleBy(10, 3));
+		System.out.println(Calculate.absValue(-8));
+		System.out.println(Calculate.max(4, 198087.23112));
+		System.out.println(Calculate.max(7000, 98, 3));
+		System.out.println(Calculate.min(7, 123));
+		
 
 	
 	}
