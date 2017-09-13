@@ -121,6 +121,25 @@ public class Calculate {
 				return (inputvariable * 100 - newNum)/100;
 			}
 	}
+	
+	public static double exponent(double base, int exponent) {
+		
+		double result = 1;
+				for (int i = 0; i < exponent; i++) {
+					
+					result *= base;
+				}
+		return result;
+	}
+	
+	public static int factorial(int inputvariable) {
+		
+		for (int i = inputvariable; i > 1; i--) {
+			   inputvariable *= i-1;
+		}
+		return inputvariable;
+	}
+	
 }
 
 	
