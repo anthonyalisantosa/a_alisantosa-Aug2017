@@ -54,15 +54,15 @@ public class Calculate {
 		if (numerator % denominator == 0) {
 			return (true);
 		}
+		
 		else {
 			return (false);
 		}
-		
 	}
 	
 	public static double absValue(double inputvariable) {
 		
-		if (inputvariable < 0) {
+		if ( inputvariable < 0) {
 			return (inputvariable * -1);
 		}
 		
@@ -73,33 +73,33 @@ public class Calculate {
 	
 	public static double max(double inputvariable1, double inputvariable2) {
 		
-		if(inputvariable1 < inputvariable2) {
-			return(inputvariable2);
+		if ( inputvariable1 < inputvariable2) {
+			return (inputvariable2);
 		}
 		
 		else {
-			return(inputvariable1);
+			return (inputvariable1);
 		}
-		
 	}
 	
-	public static double max(double inputvariable1, double inputvariable2, double inputvariable3) {
+	public static double max( double inputvariable1, double inputvariable2, double inputvariable3) {
 		
 		if (inputvariable1 < inputvariable2) {
 			if (inputvariable2 < inputvariable3) {
 				return (inputvariable3);
 			}
+			
 			else {
 				return (inputvariable2);
 			}
 		}
+		
 		else {
 			return (inputvariable1);
 		}
-			
 	}
 	
-	public static int min(int inputvariable1, int inputvariable2) {
+	public static int min( int inputvariable1, int inputvariable2) {
 		
 		if (inputvariable1 < inputvariable2) {
 			return (inputvariable1);
@@ -107,39 +107,18 @@ public class Calculate {
 		
 		else {
 			return (inputvariable2);
-		}	
+		}
 	}
 	
 	public static double round2(double inputvariable) {
 		
-		double newNum = (inputvariable * 100 ) % 1;
-			if (newNum >= .5) {
-				return ((inputvariable * 100) + 1 - newNum)/100;
-			}
-			
-			else {
-				return (inputvariable * 100 - newNum)/100;
-			}
-	}
-	
-	public static double exponent(double base, int exponent) {
-		
-		double result = 1;
-				for (int i = 0; i < exponent; i++) {
-					
-					result *= base;
-				}
-		return result;
-	}
-	
-	public static int factorial(int inputvariable) {
-		
-		for (int i = inputvariable; i > 1; i--) {
-			   inputvariable *= i-1;
+		if (inputvariable * 1000 % 10 < 5) {
+				return ((inputvariable * 1000) - (inputvariable * 1000 % 10))/1000;
 		}
-		return inputvariable;
+		else {
+			return ((inputvariable * 1000) + (10 - (inputvariable * 1000 % 10)))/1000;
+		}
 	}
-		
 	
 	public static boolean isPrime(int input) {
 		
@@ -147,13 +126,42 @@ public class Calculate {
 			return false;
 		}
 		
-		if(input >=2))			
+		else if (input == 2) {
+			return true;
+		}
+		
+		else {
+		for (int i = 2; i < input; i++) {
+			if (isDivisibleBy(input, i)) {
+				return false;
+			}
+		}
+		
+			return true;
 		}
 	}
-	
+		
+	public static int gcf(int factor1, int factor2) {
+		
+		int i;
+		for (i = factor2; !(isDivisibleBy(factor2, i) && isDivisibleBy(factor1, i)); i--) {
+		}
+		return i;
+		}
+	public static double sqrt(double input) {
+		
+			double j = .001;
+					
+					while ( j * j < input - .005 || j * j > input + .005) {
+				
+						j = .5 * (input / j + j);
+					}
+					
+			return round2(j);
+					}
+		
 }
 
-	
 	
 
 
