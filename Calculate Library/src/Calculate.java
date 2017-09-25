@@ -120,6 +120,14 @@ public class Calculate {
 		}
 	}
 	
+	public static double exponent(double base, int exponent) {
+		int product = 1;
+				for (int i = 0; i < exponent; i++) {
+					product *= base;
+				}
+				return product;
+	}
+	
 	public static boolean isPrime(int input) {
 		
 		if(input < 2) {
@@ -148,6 +156,7 @@ public class Calculate {
 		}
 		return i;
 		}
+	
 	public static double sqrt(double input) {
 		
 			double j = .001;
