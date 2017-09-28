@@ -28,9 +28,9 @@ public class Calculate {
 		return ((inputvariable / (2*3.14159)) *360);	
 	}
 	
-	public static double discriminant(double input1,double input2, double input3) {
+	public static double discriminant(double a,double b, double c) {
 		
-		return ((input2 * input2)- 4 * input1 * input2);
+		return ((b * b) - 4 * a * c);
 	}
 	
 	public static String toImproperFrac(int wholenum, int numerator, int denominator) {
@@ -121,6 +121,9 @@ public class Calculate {
 	}
 	
 	public static double exponent(double base, int exponent) {
+		if (exponent < 0) {
+			throw new IllegalArgumentException();
+		}
 		int product = 1;
 				for (int i = 0; i < exponent; i++) {
 					product *= base;
@@ -128,6 +131,16 @@ public class Calculate {
 				return product;
 	}
 	
+	public static int factorial(int input) {
+		int boop = 1;
+		if (input <0) {
+			throw new IllegalArgumentException();
+		}
+		for (int i = input; i > 1; i--) {
+			boop *= i;
+		}
+		return boop;
+	}
 	public static boolean isPrime(int input) {
 		
 		if(input < 2) {
@@ -158,16 +171,29 @@ public class Calculate {
 		}
 	
 	public static double sqrt(double input) {
-		
+		if (input < 0) {
+			throw new IllegalArgumentException();
+		}
 			double j = .001;
-					
 					while ( j * j < input - .005 || j * j > input + .005) {
-				
 						j = .5 * (input / j + j);
 					}
-					
 			return round2(j);
 					}
+	public static String quadForm(int a, int b,int c) {
+		if (discriminant(a,b,c) < 0) {
+			return "no real roots";
+		}
+		else if(discriminant(a,b,c) > 0) {
+			double max = round2((-b + sqrt(discriminant(a,b,c))/(2 * a)));
+			double min = round2((-b - sqrt(discriminant(a,b,c))/(2 * a)));
+			return min + " and " + max;
+		}
+		else {
+			return -b / (2 * a) + "";
+		}
+		
+	}
 		
 }
 
