@@ -21,7 +21,7 @@ public class QuadraticClient {
 	double c = clientinput.nextDouble();
 	System.out.println(); //A E S T H E T I C S  K E E P  I T  C L E A N
 	System.out.println(Quadratic.quadrDescriber(a, b, c));
-	System.out.println("Do you wish to continue? If not type \"N\"");
+	System.out.println("Do you wish to continue? Y/N");
 	clientresponse = clientinput.next();
 	} while(!clientresponse.equals("N"));
 		

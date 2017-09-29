@@ -1,50 +1,50 @@
 //Anthony Alisantosa
-//2017 09 06
-//Yellow sheet thing
+//2017 09 29
+//Calculate Library Parts 1 to 4
 //2nd period
 public class Calculate {
 	
-	public static int square(int inputvariable) {
+	public static int square(int inputvariable) {	//takes an input and returns input squared. 
 	
 		return inputvariable*inputvariable;
 	}
 	
 	public static int cube(int inputvariable) {
 		
-		return inputvariable * inputvariable * inputvariable;
+		return inputvariable * inputvariable * inputvariable;	//takes an input and returns the input cubed.
 	}
 	
 	public static double average(double inputvariable1, double inputvariable2) {
 			
-		return (inputvariable1 + inputvariable2) / 2;
+		return (inputvariable1 + inputvariable2) / 2;	//takes the average of 2 inputs
 	}
 	
 	public static double average(double inputvariable1, double inputvariable2, double inputvariable3) {
 		
-		return (inputvariable1 + inputvariable2 + inputvariable3) / 3;
+		return (inputvariable1 + inputvariable2 + inputvariable3) / 3;	//takes the average of 3 inputs
 	}
 	
-	public static double toDegrees(double inputvariable) {
+	public static double toDegrees(double inputvariable) {	//takes input (radians) to degrees
 		
-		return ((inputvariable / (2*3.14159)) *360);				// pi is rounded to 3.14159
+		return ((inputvariable / (2*3.14159)) *360);	// pi is rounded to 3.14159. 180 degrees = pi; 2pi = 360 degrees.
 	}
 	
-	public static double discriminant(double a,double b, double c) {
+	public static double discriminant(double a,double b, double c) {	//takes in quadratic equation coefficients
 		
-		return ((b * b) - 4 * a * c);
+		return ((b * b) - 4 * a * c);		// *sung with jack in the box music* x equals negative b, plus or minus the square root, of b squared minus 4 a c, all over 2 a.
 	}
 	
-	public static String toImproperFrac(int wholenum, int numerator, int denominator) {
+	public static String toImproperFrac(int wholenum, int numerator, int denominator) {	//takes mixed number and returns improper fraction.
 		
-		return (wholenum * denominator) + numerator + "/" + denominator;
+		return (wholenum * denominator) + numerator + "/" + denominator;	//multiples whole number by the denominator and adds the numerator.
 	
 	}
 	
-	public static String toMixedNum(int numerator, int denominator) {
+	public static String toMixedNum(int numerator, int denominator) {	//takes an improper fraction and returns it in mixed number form
 		
-		return (numerator/denominator) + "_" + numerator%denominator + "/" + denominator;
+		return (numerator/denominator) + "_" + numerator%denominator + "/" + denominator;	//Returns in String form
 	}
-	public static String foil(int variablea, int variableb, int variablea2, int variableb2, String variable) {
+	public static String foil(int variablea, int variableb, int variablea2, int variableb2, String variable) { //Getting real tired typing these comments- I mean foils a quadratic equation
 		
 		return ((variablea * variablea2) + variable + "^2" + "+" + ((variablea * variableb2) + (variableb * variablea2)) + variable + "+" + (variableb * variableb2));
 		
