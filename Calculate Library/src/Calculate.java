@@ -1,6 +1,7 @@
 //Anthony Alisantosa
 //2017 09 06
 //Yellow sheet thing
+//2nd period
 public class Calculate {
 	
 	public static int square(int inputvariable) {
@@ -10,7 +11,7 @@ public class Calculate {
 	
 	public static int cube(int inputvariable) {
 		
-		return inputvariable*inputvariable*inputvariable;
+		return inputvariable * inputvariable * inputvariable;
 	}
 	
 	public static double average(double inputvariable1, double inputvariable2) {
@@ -25,7 +26,7 @@ public class Calculate {
 	
 	public static double toDegrees(double inputvariable) {
 		
-		return ((inputvariable / (2*3.14159)) *360);	
+		return ((inputvariable / (2*3.14159)) *360);				// pi is rounded to 3.14159
 	}
 	
 	public static double discriminant(double a,double b, double c) {
@@ -62,8 +63,8 @@ public class Calculate {
 	
 	public static double absValue(double inputvariable) {
 		
-		if ( inputvariable < 0) {
-			return (inputvariable * -1);
+		if ( inputvariable < 0) {				// if inputvariable is negative
+			return (inputvariable * -1);		//multiplies by -1
 		}
 		
 		else {
@@ -71,7 +72,7 @@ public class Calculate {
 		}
 	}
 	
-	public static double max(double inputvariable1, double inputvariable2) {
+	public static double max(double inputvariable1, double inputvariable2) {		//I regret naming my variable inputvariable
 		
 		if ( inputvariable1 < inputvariable2) {
 			return (inputvariable2);
@@ -113,16 +114,16 @@ public class Calculate {
 	public static double round2(double inputvariable) {
 		
 		if (inputvariable * 1000 % 10 < 5) {
-				return ((inputvariable * 1000) - (inputvariable * 1000 % 10))/1000;
-		}
+				return ((inputvariable * 1000) - (inputvariable * 1000 % 10))/1000;		//((1.991 * 1000) - (1.991 * 1000 % 10))/1000 = (1991 - 1)/1000 = 1.99
+		}																					
 		else {
-			return ((inputvariable * 1000) + (10 - (inputvariable * 1000 % 10)))/1000;
+			return ((inputvariable * 1000) + (10 - (inputvariable * 1000 % 10)))/1000;	//((1.999 * 1000) + (10 - (1.999 * 1000 % 10))/1000 = (1999 + (10 - (9))/1000 = 2.0
 		}
 	}
 	
 	public static double exponent(double base, int exponent) {
 		if (exponent < 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException();										//Part 5 exception
 		}
 		int product = 1;
 				for (int i = 0; i < exponent; i++) {
@@ -132,8 +133,8 @@ public class Calculate {
 	}
 	
 	public static int factorial(int input) {
-		int boop = 1;
-		if (input <0) {
+		int boop = 1;																	//I couldn't decide on a variable name
+		if (input <0) {																
 			throw new IllegalArgumentException();
 		}
 		for (int i = input; i > 1; i--) {
@@ -143,39 +144,33 @@ public class Calculate {
 	}
 	public static boolean isPrime(int input) {
 		
-		if(input < 2) {
+		if(input < 2) {										//integers 0 and 1 are neither prime or not prime
 			return false;
-		}
-		
-		else if (input == 2) {
+		} else if (input == 2) {							//2 is the only even prime
 			return true;
-		}
-		
-		else {
+		} else {
 		for (int i = 2; i < input; i++) {
-			if (isDivisibleBy(input, i)) {
+			if (isDivisibleBy(input, i)) {					//increments denominators until a divisor is found. returns false (not prime) if found
 				return false;
 			}
 		}
-		
-			return true;
+			return true;									//anything else must be prime
 		}
-	}
-		
+	}	
 	public static int gcf(int factor1, int factor2) {
 		
 		int i;
-		for (i = factor2; !(isDivisibleBy(factor2, i) && isDivisibleBy(factor1, i)); i--) {
+		for (i = factor2; !(isDivisibleBy(factor2, i) && isDivisibleBy(factor1, i)); i--) {		//program waits until isdivisbleby(factor2, i) and isdivisibleby(factor1,i) are true. Then i = gcf
 		}
 		return i;
 		}
 	
 	public static double sqrt(double input) {
 		if (input < 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException();								// Part 5 exceptions. Cannot square root a negative
 		}
 			double j = .001;
-					while ( j * j < input - .005 || j * j > input + .005) {
+					while ( j * j < input - .005 || j * j > input + .005) {		// Set parameters for within +- .005
 						j = .5 * (input / j + j);
 					}
 			return round2(j);
@@ -187,7 +182,7 @@ public class Calculate {
 		else if(discriminant(a,b,c) > 0) {
 			double max = round2((-b + sqrt(discriminant(a,b,c))/(2 * a)));
 			double min = round2((-b - sqrt(discriminant(a,b,c))/(2 * a)));
-			return min + " and " + max;
+			return min + " and " + max;											// Not sure if she wants in the order of min + max. Doing it just in case :3
 		}
 		else {
 			return -b / (2 * a) + "";
