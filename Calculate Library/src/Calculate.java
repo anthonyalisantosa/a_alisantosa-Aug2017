@@ -54,9 +54,7 @@ public class Calculate {
 		
 		if (numerator % denominator == 0) {
 			return (true);
-		}
-		
-		else {
+		} else {
 			return (false);
 		}
 	}
@@ -65,9 +63,7 @@ public class Calculate {
 		
 		if ( inputvariable < 0) {				// if inputvariable is negative
 			return (inputvariable * -1);		//multiplies by -1
-		}
-		
-		else {
+		} else {
 			return (inputvariable);
 		}
 	}
@@ -76,9 +72,7 @@ public class Calculate {
 		
 		if ( inputvariable1 < inputvariable2) {
 			return (inputvariable2);
-		}
-		
-		else {
+		} else {
 			return (inputvariable1);
 		}
 	}
@@ -88,14 +82,10 @@ public class Calculate {
 		if (inputvariable1 < inputvariable2) {
 			if (inputvariable2 < inputvariable3) {
 				return (inputvariable3);
-			}
-			
-			else {
+			} else {
 				return (inputvariable2);
 			}
-		}
-		
-		else {
+		} else {
 			return (inputvariable1);
 		}
 	}
@@ -104,9 +94,7 @@ public class Calculate {
 		
 		if (inputvariable1 < inputvariable2) {
 			return (inputvariable1);
-		}
-		
-		else {
+		} else {
 			return (inputvariable2);
 		}
 	}
@@ -115,8 +103,7 @@ public class Calculate {
 		
 		if (inputvariable * 1000 % 10 < 5) {
 				return ((inputvariable * 1000) - (inputvariable * 1000 % 10))/1000;		//((1.991 * 1000) - (1.991 * 1000 % 10))/1000 = (1991 - 1)/1000 = 1.99
-		}																					
-		else {
+		} else {
 			return ((inputvariable * 1000) + (10 - (inputvariable * 1000 % 10)))/1000;	//((1.999 * 1000) + (10 - (1.999 * 1000 % 10))/1000 = (1999 + (10 - (9))/1000 = 2.0
 		}
 	}
