@@ -5,20 +5,21 @@
 //Describing the quadratic equation: the code!
 public class Quadratic {
 	public static String quadrDescriber (double a, double b, double c) {
-		
-		String roots = "Your parabola has " + quadForm(a,b,c) + " and a y intercept at (0," 
-				+ c + ").\n";
+		String describer = "Description of the graph of: \n" + "y = " + a + " x^2 + " + b + " x + " + c + "\n\n";
+		String updown = "Opens: ";
+		if (a > 0) {
+			updown += "Up \n";
+		} else {
+			updown += "Down \n";
+		}
 		double xvertex = -b / (2 * a);
 		double yvertex = (a * (xvertex * xvertex)) + (b * xvertex) + c;
-		String vertex = "Your parabola's vertex is at (" + xvertex + "," + yvertex+ ").\n";
-		String updown = "Your parabola points ";
-		if (a > 0) {
-			updown += "up.\n";
-		} else {
-			updown += "down.\n";
-		}
+		String vertex = "Vertex: (" + round2(xvertex) + ", " + round2(yvertex) + ").\n";
+		String axis = "Axis of Symmetry: " + round2(xvertex) + "\n";
+		String roots = "x-intercept(s): " + quadForm(a,b,c) + "\n";
+		String intercept = "y-intercept: " + c + "\n";		
 		
-		return roots + vertex + updown;
+		return describer + updown + axis + vertex + roots + intercept;
 	}
 	public static double round2(double inputvariable) {
 		
@@ -45,15 +46,15 @@ public class Quadratic {
 	}
 	public static String quadForm(double a, double b,double c) {
 		if (discriminant(a,b,c) < 0) {
-			return "no real roots";
+			return "None";
 		}
 		else if(discriminant(a,b,c) > 0) {
-			double max = round2((-b + sqrt(discriminant(a,b,c))/(2 * a)));
-			double min = round2((-b - sqrt(discriminant(a,b,c))/(2 * a)));
-			return "roots at " + min + " and " + max;
+			double max = round2((-b + sqrt(discriminant(a,b,c)))/(2 * a));
+			double min = round2((-b - sqrt(discriminant(a,b,c)))/(2 * a));
+			return min + " and " + max;
 		}
 		else {
-			return "a root at " + -b / (2 * a) + "";
+			return -b / (2 * a) + "";
 		}
 		
 	}

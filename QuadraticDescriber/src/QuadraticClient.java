@@ -16,19 +16,27 @@ public class QuadraticClient {
 	String clientresponse = "";	//default value for string = empty
 	do {	//do/while loop (Does code while clientrespons.equals does not equal "quit")
 	System.out.println("Provide values for coefficients a, b, and c");
-	System.out.println("a:");
-	double a = clientinput.nextDouble();
-	System.out.println("b:");
-	double b = clientinput.nextDouble();
-	System.out.println("c:");
-	double c = clientinput.nextDouble();
-	System.out.println(); //A E S T H E T I C S  K E E P  I T  C L E A N
-	System.out.println("Description of the graph of:");
-	System.out.println(a + " x^2 " + b + " x " + c);
+	System.out.println();
+	System.out.print("a:");	
+	//prompts user for first coefficient
+	double a = clientinput.nextDouble();	
+	//takes next user input
+	System.out.print("b:");	
+	//prompts user for second coefficient
+	double b = clientinput.nextDouble();	
+	//takes next user input
+	System.out.print("c:");	
+	//prompts user for third coefficient
+	double c = clientinput.nextDouble();	
+	//takes next user input
+	System.out.println(); 		//A E S T H E T I C S  K E E P  I T  C L E A N
 	System.out.println(Quadratic.quadrDescriber(a, b, c));
+	//Calls quadrDescriber (inside same project)
 	System.out.println("Do you want to keep going? (Type \"quit\" to end)");
+	//Prompts user to decide to loop/stop
 	clientresponse = clientinput.next();
 	} while(!clientresponse.equals("quit"));
+	//"quit" terminates program
 		
 	}
 	
