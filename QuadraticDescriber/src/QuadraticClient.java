@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
 //Anthony Alisantosa
-//9/28/17
+//10/17/17
 //Part 5
 //2nd Period
 //Describing the quadratic equation for the client
-//
+
 //Takes the User's responses in the client. 
 //Prompts user through a series of Scanners.
+//Makes sure prompts are 100% IDENTICAL TO QD.JAR
 public class QuadraticClient {
 	public static void main(String[] args) {
 	//to make scanner Scanner <scannerName> = new Scanner();
