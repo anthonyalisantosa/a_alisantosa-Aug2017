@@ -15,19 +15,27 @@ public class Split {
 	//play around with String.split! 
 	//What happens if you "I reallyreally likeapples".split("really") ?
 		
-		String bip = "I really like really red apples";
-		String[] ree = bip.split("really");
-		System.out.println(Arrays.toString(ree));
+		String mySandwich = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
+		System.out.println(splitSandwich(mySandwich));
 		
-		String bop = "I reallyreally like apples";
-		String [] slip = bop.split("really");
-		System.out.println(Arrays.toString(slip));
+		String mySandwichBreadTop = "breadlettustomatobaconmayohambreadcheese";
+		System.out.println(splitSandwich(mySandwichBreadTop));
 		
-		String dinner = "meat lettuce tomato potato cucumber";
-		String[] yummy = dinner.split(" ");
-		System.out.println(Arrays.toString(yummy));
+		String mySandwichBreadBottom = "pineapplecheeselettucebreadbreadlettustomatobaconmayohambread";
+		System.out.println(splitSandwich(mySandwichBreadBottom));
+		
+		String cheeseSandwich = "breadcheesebread";
+		System.out.println(splitSandwich(cheeseSandwich));
+		
+		String mySandwichWithSpaces = "apples pineapples bread lettus tomato bacon mayo ham bread cheese";
+		System.out.println(splitSpacedSandwich(mySandwichWithSpaces));
+		
+		String exampleSandwich = "bread tomato bacon bread ham lettus bread";
+		System.out.println(splitSpacedSandwich(exampleSandwich));
+		
+		String moreBread = "bread bread bread bread bread";
+		System.out.println(splitSpacedSandwich(moreBread));
 	}
-
 
 	//Your task Part 1:
 	/*Write a method that take in a string like "applespineapplesbreadlettustomatobaconmayohambreadcheese" describing a sandwich
@@ -36,13 +44,22 @@ public class Split {
 	*/
 		
 	
-		  public static String sandwichcontents(String sandwich) {
-			sandwich = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
-			String[] nobread = sandwich.split("bread");
-			Arrays.toString(nobread);
-			return nobread[1];
+	public static String splitSandwich(String sandwich) {
+		String[] sansBread = sandwich.split("bread");
+		String contents = "";
+		int i = 0;
+		int end = sansBread.length;
+		if(!sandwich.startsWith("bread")) {
+			i = 1;
 		}
-		
+		if(!sandwich.endsWith("bread")) {
+			end -= 1;
+		}
+		for(; i < end; i++) {
+			contents += sansBread[i];
+		}
+		return contents;
+	}
 
 
 	//Your task Part 2:
@@ -52,12 +69,28 @@ public class Split {
 	*/
 
 		  
-		  public static String insidesandwich(String sandwich) {
-			  sandwich = "apples pineapples bread lettus tomato bacon mayo ham bread cheese";
-			  String[] nobread = sandwich.split("bread");
-			  String thing = Arrays.toString(nobread);
-			  String[] nospaces = thing.split(" ");
-			  return nospaces[1];
-			  
-		  }
+	public static String splitSpacedSandwich(String sandwich) {
+		String[] items = sandwich.split(" ");
+		int firstBread = 0;
+		for(int i = 0; i < items.length; i++) {
+			if(items[i].equals("bread")) {
+				firstBread = i;
+				break;
+			}
+		}
+		int lastBread = 0;
+		for(int i = items.length - 1; i > -1; i--) {
+			if(items[i].equals("bread")) {
+				lastBread = i;
+				break;
+			}
+		}
+		String contents = "";
+		for(int i = firstBread + 1; i < lastBread; i++) {
+			if(!items[i].equals("bread")) {
+				contents += items[i] + " ";
+			}
+		}
+		return contents;
 	}
+}
