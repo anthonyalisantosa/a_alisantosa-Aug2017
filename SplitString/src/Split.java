@@ -33,7 +33,7 @@ public class Split {
 		String exampleSandwich = "bread tomato bacon bread ham lettus bread";
 		System.out.println(splitSpacedSandwich(exampleSandwich));
 		
-		String moreBread = "bread bread bread bread bread";
+		String moreBread = "bread bread";
 		System.out.println(splitSpacedSandwich(moreBread));
 	}
 
@@ -45,10 +45,10 @@ public class Split {
 		
 	
 	public static String splitSandwich(String sandwich) {
-		String[] sansBread = sandwich.split("bread");
+		String[] nobread = sandwich.split("bread");
 		String contents = "";
 		int i = 0;
-		int end = sansBread.length;
+		int end = nobread.length;
 		if(!sandwich.startsWith("bread")) {
 			i = 1;
 		}
@@ -56,7 +56,7 @@ public class Split {
 			end -= 1;
 		}
 		for(; i < end; i++) {
-			contents += sansBread[i];
+			contents += nobread[i];
 		}
 		return contents;
 	}
