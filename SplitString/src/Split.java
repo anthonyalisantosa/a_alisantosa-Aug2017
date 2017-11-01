@@ -1,5 +1,12 @@
 import java.util.Arrays;
 
+	/*
+	 * Author: Anthony Alisantosa
+	 * Date: 10/30/17
+	 * 
+	 * Description: Uses the .split tool to split strings into arrays,
+	 * and return them as split strings.
+	 */
 public class Split {
 
 	public static void main(String[] args) {
@@ -15,26 +22,30 @@ public class Split {
 	//play around with String.split! 
 	//What happens if you "I reallyreally likeapples".split("really") ?
 		
+		
+		
+		//A series of tests for the code
+		
 		String mySandwich = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
 		System.out.println(splitSandwich(mySandwich));
 		
-		String mySandwichBreadTop = "breadlettustomatobaconmayohambreadcheese";
-		System.out.println(splitSandwich(mySandwichBreadTop));
+		String BreadonTop = "breadlettustomatobaconmayohambreadcheese";
+		System.out.println(splitSandwich(BreadonTop));
 		
-		String mySandwichBreadBottom = "pineapplecheeselettucebreadbreadlettustomatobaconmayohambread";
-		System.out.println(splitSandwich(mySandwichBreadBottom));
+		String mytomatoBreadBottom = "pineapplecheeselettucebreadbreadtomatotomatotomatobaconmayohambread";
+		System.out.println(splitSandwich(mytomatoBreadBottom));
 		
-		String cheeseSandwich = "breadcheesebread";
-		System.out.println(splitSandwich(cheeseSandwich));
+		String grilledCheeseSandwich = "breadcheesebread";
+		System.out.println(splitSandwich(grilledCheeseSandwich));
 		
-		String mySandwichWithSpaces = "apples pineapples bread lettus tomato bacon mayo ham bread cheese";
-		System.out.println(splitSpacedSandwich(mySandwichWithSpaces));
+		String spacedSandwich = "apples pineapples bread lettus lettus bacon bacon tomato bacon mayo ham bread cheese";
+		System.out.println(splitSpacedSandwich(spacedSandwich));
 		
-		String exampleSandwich = "bread tomato bacon bread ham lettus bread";
-		System.out.println(splitSpacedSandwich(exampleSandwich));
+		String yummySpacedSandwich = "bread tomato bacon bread ham lettus yummy bacon bread";
+		System.out.println(splitSpacedSandwich(yummySpacedSandwich));
 		
-		String moreBread = "bread bread";
-		System.out.println(splitSpacedSandwich(moreBread));
+		String wholeLottaBread = "bread bread bread bread bread bread bread";
+		System.out.println(splitSpacedSandwich(wholeLotaBread));
 	}
 
 	//Your task Part 1:
@@ -43,7 +54,16 @@ public class Split {
 	* What if it's a fancy sandwich with multiple pieces of bread?
 	*/
 		
-	
+	/*
+	 * Creates array that splits the given string
+	 * by the string "bread"
+	 * 
+	 * Recreates string by rebuilding it via for loop,
+	 * which starts whenever the first bread is found.
+	 * The loop stops before the second bread, thus
+	 * printing all of the contents within the outside
+	 * bread.
+	 */
 	public static String splitSandwich(String sandwich) {
 		String[] nobread = sandwich.split("bread");
 		String contents = "";
@@ -67,7 +87,16 @@ public class Split {
 	* use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
 	* Again, what if it's a fancy sandwich with multiple pieces of bread?
 	*/
-
+	
+	
+	/*
+	 * First splits original string by spaces, creating
+	 * an array of Strings of the Sandwich.
+	 * 
+	 * For loop determines where the first bread is
+	 * and ends loop once it is found by incrementing 
+	 * its position on the array. 
+	 */
 		  
 	public static String splitSpacedSandwich(String sandwich) {
 		String[] items = sandwich.split(" ");
@@ -77,7 +106,13 @@ public class Split {
 				firstBread = i;
 				break;
 			}
-		}
+		}	
+	
+	/*
+	 * Another for loop determines where the last bread
+	 * is by decrementing the length of the array until
+	 * the second bread is found, and the loop is stopped.
+	 */
 		int lastBread = 0;
 		for(int i = items.length - 1; i > -1; i--) {
 			if(items[i].equals("bread")) {
