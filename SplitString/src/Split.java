@@ -45,7 +45,7 @@ public class Split {
 		System.out.println(splitSpacedSandwich(yummySpacedSandwich));
 		
 		String wholeLottaBread = "bread bread bread bread bread bread bread";
-		System.out.println(splitSpacedSandwich(wholeLotaBread));
+		System.out.println(splitSpacedSandwich(wholeLottaBread));
 	}
 
 	//Your task Part 1:
