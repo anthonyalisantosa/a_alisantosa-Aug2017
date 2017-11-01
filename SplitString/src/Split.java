@@ -1,12 +1,12 @@
 import java.util.Arrays;
 
-	/*
-	 * Author: Anthony Alisantosa
-	 * Date: 10/30/17
-	 * 
-	 * Description: Uses the .split tool to split strings into arrays,
-	 * and return them as split strings.
-	 */
+/*
+ * Author: Anthony Alisantosa
+ * Date: 10/30/17
+ * 
+ * Description: Uses the .split tool to split strings into arrays,
+ * and return them as split strings.
+ */
 public class Split {
 
 	public static void main(String[] args) {
