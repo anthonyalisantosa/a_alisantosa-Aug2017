@@ -112,7 +112,7 @@ public class Calculate {
 		if (exponent < 0) {
 			throw new IllegalArgumentException();										//Part 5 exception
 		}
-		int product = 1;
+		double product = 1;
 				for (int i = 0; i < exponent; i++) {
 					product *= base;
 				}
