@@ -17,7 +17,7 @@ public class ArraysLab3 {
 		int[] a2 = {7, 14, 21, 28, 35, 42, 49, 56};
 		int[] sumArr = sum(a1, a2);
 		int appendNum = 200;
-		int[] appendArr = append(a1,appendNum);
+		int[] appendArr = append(a1, appendNum);
 		int removeIdx = 5;
 		int[] removeArr = remove(a2, removeIdx);
 		int sumOfEvens = sumEven(appendArr);
@@ -46,7 +46,7 @@ public class ArraysLab3 {
 			for(int i = 0; i < arr.length; i++) {
 				appendarr[i] = arr[i];
 			}
-			appendarr[arr.length - 1] = num;
+			appendarr[arr.length] = num;
 			return appendarr;
 		}
 		
@@ -55,8 +55,8 @@ public class ArraysLab3 {
 			for(int i = 0; i < idx; i++) {
 				noIndex[i] = arr[i];
 			}
-			for(int i = idx; i < noIndex.length; i++) {
-				noIndex[idx] = noIndex[idx + 1];
+			for(int i = idx; i < arr.length; i++) {
+				noIndex[idx] = arr[idx + 1];
 			}
 			return noIndex;
 		}
