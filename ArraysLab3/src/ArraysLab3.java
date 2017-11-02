@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /*
@@ -30,9 +29,12 @@ public class ArraysLab3 {
 		System.out.println(sumOfEvens);
 		System.out.println(Arrays.toString(a1));
 	}
-	
-
-		
+		/*
+		 * arrSum has the same length as arr1.
+		 * Each index of arrSum holds the sum of the 
+		 * values of arr1 and arr2 at the 
+		 * same index
+		 */
 		public static int[] sum(int[] arr1 , int[] arr2) {
 			int[] arrSum = new int[arr1.length];
 			for(int i = 0; i < arr1.length; i++) {
@@ -41,6 +43,11 @@ public class ArraysLab3 {
 			return arrSum;
 		}
 		
+		/*
+		 * appendarr has a length of one greater than arr.
+		 * The array is identical to arr, except it adds num to
+		 * the last index of appendarr
+		 */
 		public static int[] append(int[] arr, int num) {
 			int[] appendarr = new int[arr.length + 1];
 			for(int i = 0; i < arr.length; i++) {
@@ -50,6 +57,12 @@ public class ArraysLab3 {
 			return appendarr;
 		}
 		
+		/*
+		 * noIndex has a length of one less than arr. 
+		 * noIndex is identical to arr except it removes
+		 * the value at index idx by replacing it with 
+		 * the next index, until it meets the array's end.
+		 */
 		public static int[] remove(int[] arr, int idx) {
 			int[] noIndex = new int[arr.length - 1];
 			for(int i = 0; i < idx; i++) {
@@ -61,6 +74,10 @@ public class ArraysLab3 {
 			return noIndex;
 		}
 		
+		/*
+		 * arrSumEven adds all values at indexes
+		 * divisible by 2.
+		 */
 		public static int sumEven(int[] arr) {
 			int arrSumEven = 0;
 			for(int i = 0; i < arr.length; i += 2) {
@@ -69,11 +86,21 @@ public class ArraysLab3 {
 			return arrSumEven;
 			}
 		
+		/*
+		 * rotateRight does not return anything.
+		 * int last stores the value at the last
+		 * index. The last index changes its value 
+		 * to the index before it, and continues
+		 * down the array until it meets index 1, 
+		 * where it stops. Index 0 is then set to the
+		 * last value of the array before shifting.
+		 */
 		public static void rotateRight(int[] arr) {
-			for(int i = 1; i < arr.length; i++) {
+			int last = arr[arr.length - 1];
+			for(int i = arr.length - 1; i > 0; i--) {
 				arr[i] = arr[i - 1];
 			}
-			arr[0] = arr[arr.length - 1];
+			arr[0] = last;
 		}
 			
 }

@@ -55,7 +55,7 @@ public class LotsOfCopies {
 		x++;
 		System.out.println("num is: " + x + " according to changeMe");
 		
-		str += " period 2";
+		str += " is so much fun";
 		System.out.println("strMain is: \"" + str + "\" according to changeMe");
 		
 		arr[0] = 6;
@@ -86,9 +86,10 @@ public class LotsOfCopies {
 		 * Expected output: "The value of the first number of bArr is: 2"
 		 * Actual output: "The value of the first number of bArr is: 3"
 		 */
-		arr[0] = 2;
+		int[] xarr = new int[5];
+		xarr[0] = 2;
 		int[] bArr = arr;
-		arr[0] = 3;
+		xarr[0] = 3;
 		System.out.println("The value of the first number of bArr is: " + bArr[0]);
 		
 		System.out.println();
