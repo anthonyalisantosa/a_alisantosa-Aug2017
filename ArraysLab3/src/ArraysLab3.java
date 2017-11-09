@@ -26,6 +26,7 @@ public class ArraysLab3 {
 		System.out.println(Arrays.toString(sumArr));
 		System.out.println(Arrays.toString(appendArr));
 		System.out.println(Arrays.toString(removeArr));
+		System.out.println();
 		System.out.println(sumOfEvens);
 		System.out.println(Arrays.toString(a1));
 	}
@@ -68,8 +69,8 @@ public class ArraysLab3 {
 			for(int i = 0; i < idx; i++) {
 				noIndex[i] = arr[i];
 			}
-			for(int i = idx; i < arr.length; i++) {
-				noIndex[idx] = arr[idx + 1];
+			for(int i = idx; i < noIndex.length; i++) {
+				noIndex[i] = arr[i + 1];
 			}
 			return noIndex;
 		}
