@@ -105,5 +105,45 @@ public class FracCalc {
     	return arr; 
     }
     
+    public static void simplify(int[] array) {
+    	if(array[2] < 0) {
+    		array[1] *= -1;
+    		array[2] *= -1;
+    	}
+    	array[0] = array[1] / array[2];
+    	array[1] = array[1] % array[2];
+    	array[1] /= gcf(array[1], array[2]);
+    	array[2] /= gcf(array[1], array[2]);
+    	if(array[0] < 0 && array[2] < 0) {
+    		array[2] *= -1;
+    	}
+    }
+    
+    public static String reformat(int[] array) {
+    	String result = array[0] + "_" + array[1] + "/" + array[2];
+    	if(result.startsWith("0_")) {
+    		result = result.substring(2);
+    	}
+    	if(result.indexOf("_0/") > 0) {
+    		result = result.substring(0, result.indexOf("_"));
+    	}
+    	if
+    }
+    
+    public static int gcf(int factor1, int factor2) {
+		
+		int i;
+		for (i = factor2; !(isDivisibleBy(factor2, i) && isDivisibleBy(factor1, i)); i--) {		//program waits until isdivisbleby(factor2, i) and isdivisibleby(factor1,i) are true. Then i = gcf
+		}
+		return i;
+		}
+    public static boolean isDivisibleBy(int numerator, int denominator) {
+		
+		if (numerator % denominator == 0) {
+			return (true);
+		} else {
+			return (false);
+		}
+	}
 }
 
