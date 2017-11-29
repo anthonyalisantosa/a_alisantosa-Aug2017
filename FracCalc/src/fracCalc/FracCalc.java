@@ -37,7 +37,7 @@ public class FracCalc {
     	String operand1 = array[0];
     	String operator = array[1];
     	String operand2 = array[2];
-        String answer = "";
+        int[] answer = {0,0,1};
 		int[] firstOper = splitOperand(operand1);
 		int[] secOper = splitOperand(operand2);
 		int numer1 = 0;
@@ -59,26 +59,31 @@ public class FracCalc {
     		newnum2 = numer2 * firstOper[2];
     		den = firstOper[2] * secOper[2];
     		int sum = newnum1 + newnum2;
-    		answer = sum + "/" + den;
+    		answer[1] = sum;
+    		answer[2] = den;
     	}
     	if(operator.equals("-")) {
     		newnum1 = numer1 * secOper[2];
     		newnum2 = numer2 * firstOper[2];
     		den = firstOper[2] * secOper[2];
-    		int difference = newnum1 - newnum2;
-    		answer = difference + "/" + den;
+    		int diff = newnum1 - newnum2;
+    		answer[1] = diff;
+    		answer[2] = den;
     	}
     	if(operator.equals("*")) {
     		int prodnum = numer1 * numer2;
     		int prodden = firstOper[2] * secOper[2];
-    		answer = prodnum + "/" + prodden;
+    		answer[1] = prodnum;
+    		answer[2] = prodden;
     	}
     	if (operator.equals("/")) {
     		int quotnum = numer1 * secOper[2];
     		int quotden = firstOper[2] * numer2;
-    		answer = quotnum + "/" + quotden;
+    		answer[1] = quotnum;
+    		answer[2] = quotden;
     	}
-        return answer ;
+    	simplify(answer);
+        return reformat(answer);
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
@@ -112,10 +117,11 @@ public class FracCalc {
     	}
     	array[0] = array[1] / array[2];
     	array[1] = array[1] % array[2];
-    	array[1] /= gcf(array[1], array[2]);
-    	array[2] /= gcf(array[1], array[2]);
-    	if(array[0] < 0 && array[2] < 0) {
-    		array[2] *= -1;
+    	int gcf = gcf(array[1], array[2]);
+    	array[1] /= gcf;
+    	array[2] /= gcf;
+    	if(array[0] < 0 && array[1] < 0) {
+    		array[1] *= -1;
     	}
     }
     
@@ -127,7 +133,14 @@ public class FracCalc {
     	if(result.indexOf("_0/") > 0) {
     		result = result.substring(0, result.indexOf("_"));
     	}
-    	if
+    	if(result.startsWith("0/")) {
+    		result = "0";
+    	}
+    	if(result.endsWith("/1")) {
+    		result = result.substring(0, result.indexOf("/"));
+    	}
+    	return result;
+  
     }
     
     public static int gcf(int factor1, int factor2) {
