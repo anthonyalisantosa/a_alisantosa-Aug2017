@@ -139,26 +139,61 @@ public class FracCalc {
     	boolean multiOp = false;
           if (array.length > 3)
           	multiOp = true;
-        Fraction firstOper = splitOperand(operand1);
-        Fraction secOper = splitOperand(operand2);
-        Fraction result = new Fraction(0, 0, 1);
-        if(operator.equals("+")) {
-        	result = firstOper.add(secOper);
-        }
-        if(operator.equals("-")) {
-        	result = firstOper.subtract(secOper);
-        }
-        if(operator.equals("*")) {
-        	result = firstOper.multiply(secOper);
-        }
-        if(operator.equals("/")) {
-        	result = firstOper.divide(secOper);
-        }
-        
+          
+        int[] answer = {0,0,1};
+		int[] firstOper = splitOperand(operand1);
+		int[] secOper = splitOperand(operand2);
+		int numer1 = 0;
+		int numer2 = 0;
+		int newnum1 = 0;
+		int newnum2 = 0;
+		int den = 0;
+		if(firstOper[0] < 0) {
+			numer1 = (firstOper[0] * firstOper[2] - firstOper[1]);
+		} else {
+			numer1 = (firstOper[0] * firstOper[2] + firstOper[1]);
+		}if(secOper[0] < 0) {
+			numer2 = (secOper[0] * secOper[2] - secOper[1]);
+		} else {
+			numer2= (secOper[0] * secOper[2] + secOper[1]);
+		}
+		/*
+		 * Treats numerator as a negative number if
+		 * whole number is negative
+		 */
+    	if(operator.equals("+")) {
+    		newnum1 = numer1 * secOper[2];
+    		newnum2 = numer2 * firstOper[2];
+    		den = firstOper[2] * secOper[2];
+    		int sum = newnum1 + newnum2;
+    		answer[1] = sum;
+    		answer[2] = den;
+    	}
+    	if(operator.equals("-")) {
+    		newnum1 = numer1 * secOper[2];
+    		newnum2 = numer2 * firstOper[2];
+    		den = firstOper[2] * secOper[2];
+    		int diff = newnum1 - newnum2;
+    		answer[1] = diff;
+    		answer[2] = den;
+    	}
+    	if(operator.equals("*")) {
+    		int prodnum = numer1 * numer2;
+    		int prodden = firstOper[2] * secOper[2];
+    		answer[1] = prodnum;
+    		answer[2] = prodden;
+    	}
+    	if (operator.equals("/")) {
+    		int quotnum = numer1 * secOper[2];
+    		int quotden = firstOper[2] * numer2;
+    		answer[1] = quotnum;
+    		answer[2] = quotden;
+    	}
+    	
     	 //Reduces the result of the calculations
-    	result.reduce();
+    	simplify(answer);
     	 //Reformats the array into a String
-    	String resultString = result.toString();
+    	String resultString = reformat(answer);
         
         /*
          * Appends the rest of the user input
@@ -174,7 +209,10 @@ public class FracCalc {
         
         //Returns the final answer
         return resultString;
-    }    
+    }
+
+    // TODO: Fill in the space below with any helper methods that you think you will need
+    
     /**
      * Interprets user input into an array of ints
      * @param input
@@ -183,7 +221,7 @@ public class FracCalc {
      * An array of integers representing the operand
      */
     
-    public static Fraction splitOperand(String input) {
+    public static int[] splitOperand(String input) {
     	
     	int whole = 0;
     	int num = 0;
@@ -211,9 +249,88 @@ public class FracCalc {
     		whole = Integer.parseInt(input);
     	}
     	
-    	Fraction result = new Fraction(whole, num, den);
-    	return result; 
-    }    
+    	int [] arr = {whole, num, den};
+    	return arr; 
+    }
+    
+    /**
+     * Manipulates an array to simplify it
+     * @param arr
+     * The array of ints representing a number
+     * to be simplified
+     */
+    public static void simplify(int[] array) {
+    	
+    	/*
+    	 * Transfers the negative sign from the
+    	 * denominator to the numerator
+    	 */
+    	if(array[2] < 0) {
+    		array[1] *= -1;
+    		array[2] *= -1;
+    	}
+    	/*
+    	 * Reduces the improper fraction and
+    	 * adds to whole number
+    	 */
+    	array[0] = array[1] / array[2];
+    	array[1] = array[1] % array[2];
+    	/*
+    	 * Finds the greatest common factor
+    	 * to reduce the fraction
+    	 */
+    	int gcf = gcf(array[1], array[2]);
+    	array[1] /= gcf;
+    	array[2] /= gcf;
+    	/*
+    	 * Removes negative sign from numerator
+    	 */
+
+    	if(array[0] < 0 && array[1] < 0) {
+    		array[1] *= -1;
+    	}
+    }
+    
+    
+    /**
+     * Builds a String and trims it for
+     * formatting conventions
+     * @param arr
+     * The array representing a number
+     * @return
+     * A String representing a number
+     */
+    public static String reformat(int[] array) {
+    	
+    	/*
+    	 * Constructs a String using whole number,
+    	 * numerator, and denominator
+    	 */
+    	String result = array[0] + "_" + array[1] + "/" + array[2];
+    	//Delete "0_" if it exists
+    	if(result.startsWith("0_")) {
+    		result = result.substring(2);
+    	}
+    	//Trim off fraction part if numerator is 0
+    	if(result.indexOf("_0/") > 0) {
+    		result = result.substring(0, result.indexOf("_"));
+    	}
+    	/*
+    	 * Entire String should be 0 if number is a fraction
+    	 * and numerator is 0
+    	 */
+    	if(result.startsWith("0/")) {
+    		result = "0";
+    	}
+    	//Trim off /1 if still remaining
+    	if(result.endsWith("/1")) {
+    		result = result.substring(0, result.indexOf("/"));
+    	}
+    	//Return reformatted String
+    	return result;
+  
+    }
+    
     public static int gcf(int factor1, int factor2) {
     	/* i is declared before the for loop because
 		 * it must be returned after the loop.
