@@ -124,7 +124,7 @@ public class Calculate {
 				for (int i = 0; i < exponent; i++) {
 					product *= base;
 				}
-				return product;
+				return round2(product);
 	}
 	
 	public static int factorial(int input) { //Calculates factorial (n!) through decrementing for loops
