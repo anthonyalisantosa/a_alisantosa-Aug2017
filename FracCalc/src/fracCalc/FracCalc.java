@@ -118,39 +118,38 @@ public class FracCalc {
      * @return
      * The result of the mathematical expression
      */
-    
-    // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
-    // This function takes a String 'input' and produces the result
-    //
-    // input is a fraction string that needs to be evaluated.  For your program, this will be the user input.
-    //      e.g. input ==> "1/2 + 3/4"
-    //        
-    // The function should return the result of the fraction after it has been calculated
-    //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input){ 
-        // TODO: Implement this function to produce the solution to the input
-    	
     	//Splits user input into array
     	String[] array = input.split(" ");
     	String operand1 = array[0];
     	String operator = array[1];
     	String operand2 = array[2];
-    	
+    	//checks for multiple operands by checking if the array has more than 2 operands and 1 operator
     	boolean multiOp = false;
           if (array.length > 3)
           	multiOp = true;
+        /*
+         * firstOper and secOper are set to operand1 and
+         * operand2 after being split by "_" and "/" respectively.
+         * Become arguments set to fields of Fraction constructor.
+         */
         Fraction firstOper = splitOperand(operand1);
         Fraction secOper = splitOperand(operand2);
+        //Constructs new object result with default values of whole, num, and den values of 0, 0, 1 respectively
         Fraction result = new Fraction(0, 0, 1);
+        //Adds firstOper to secOper
         if(operator.equals("+")) {
         	result = firstOper.add(secOper);
         }
+        //Subtracts firstOper by secOper
         if(operator.equals("-")) {
         	result = firstOper.subtract(secOper);
         }
+        //Multiples firstOper by secOper
         if(operator.equals("*")) {
         	result = firstOper.multiply(secOper);
         }
+        //Divides firstOper by secOper
         if(operator.equals("/")) {
         	result = firstOper.divide(secOper);
         }
