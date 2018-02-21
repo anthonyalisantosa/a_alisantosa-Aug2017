@@ -1,4 +1,11 @@
-
+/* 
+ * Anthony Alisantosa
+ * 2/21/18
+ * Period 2
+ * 
+ * Class MakeShape tests all prisms with given values. 
+ *
+ */
 public class MakeShape {
 
 	public static void main(String[] args) 

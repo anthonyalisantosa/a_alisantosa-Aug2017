@@ -1,4 +1,14 @@
-/* Write this abstract class called Prism.  It has one private field (height) and a constructor.  
+/* 
+ * Anthony Alisantosa
+ * 2/21/18
+ * Period 2
+ * 
+ * Abstract class that holds the Height of all prisms as well as hold abstract methods
+ * calcBase() and calcPerimeter(). Also holds methods calcVolume() and calcSA() which return 
+ * the volume and surface area of the prism. 
+ * 
+ * 
+ * Write this abstract class called Prism.  It has one private field (height) and a constructor.  
  * It contains the methods calcAreaOfBase, calcPerimeter, calcVolume, and calcSA.
  * None of these methods require parameters.   
  * A couple are abstract - can you tell which ones and why?

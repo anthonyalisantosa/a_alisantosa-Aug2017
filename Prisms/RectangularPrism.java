@@ -1,7 +1,12 @@
-/* Write this concrete (non-abstract) class called RectangularPrism.  
- * It has 2 private fields (length and width).
- * It inherits its height from its superclass, Prism (because all prisms have a height).
- * Provide a constructor and the methods required by its abstract superclass.  
+/* 
+ * Anthony Alisantosa
+ * 2/21/18
+ * Period 2
+ * 
+ * Class RectangularPrism extends Prism and inherits Prism's height. Uses
+ * given length and width to calculate the area of base sides. Use length and width
+ * to calculate base in calcBase(), and calculates the perimeter of the base rectangle.
+ * 
  */
 
 public class RectangularPrism extends Prism

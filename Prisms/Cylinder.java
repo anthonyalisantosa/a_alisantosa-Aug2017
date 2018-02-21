@@ -1,9 +1,13 @@
-/* Write this concrete (non-abstract) class called Cylinder that extends Prism.  
- * It has a private field (radius) and inherits its height from its superclass, Prism 
- *    (because all prisms have a height).
- * Provide a constructor and the methods required by its abstract superclass.  
+/* 
+ * Anthony Alisantosa
+ * 2/21/18
+ * Period 2
+ * 
+ * Class Cylinder extends Prism so it inherits height. Uses given 
+ * radius to calculate the circular base in calcBase(). Uses calcPerimeter to
+ * calculate the circumference of the base circle.
+ *
  */
-
 public class Cylinder extends Prism
 {
 	private double radius;
