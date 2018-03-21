@@ -17,7 +17,31 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-		return "";
+		String[] konfliktz = command.split(" ");
+		if(command.toLowerCase().startsWith("clear")) {
+			if(konfliktz.length > 1) { //clears specific cell
+				SpreadsheetLocation loc = new SpreadsheetLocation(konfliktz[1]);
+				cells[loc.getRow()][loc.getCol()] = new EmptyCell();
+			}else { //clears all
+				for(int i = 0; i < 20; i++) {
+					for(int j = 0; j < 12; j++) {
+						cells[i][j] = new EmptyCell();
+					}
+				}
+			}
+			return getGridText();
+		}else {
+			SpreadsheetLocation locz = new SpreadsheetLocation(konfliktz[0]);
+			if(command.indexOf("=") >= 0) {
+				cells[locz.getRow()][locz.getCol()] = new TextCell(konfliktz[2]);
+				return getGridText();
+			}else if(command.toLowerCase().charAt(0) >= 'a' && command.toLowerCase().charAt(0) <= 'l'){
+				return getCell(locz).fullCellText();
+				
+			}else {
+				return "";
+			}
+		}
 	}
 
 	@Override
@@ -46,8 +70,24 @@ public class Spreadsheet implements Grid
 	{
 		// TODO Auto-generated method stub\
 		String sheet = "";
-		
-		return null;
-	}
+		for(int i = 0; i <= 20; i++) {
+			for(char j = 'A'; j <= 'L';j++) {
+				if(i == 0) {
+					if(j == 'A') {
+						sheet += "   |";
+					}
 
+					sheet += String.format("%-10c|",j);
+				} else{
+					if(j == 'A') {
+						sheet += String.format("%-3d|", i);
+					}
+					sheet += cells[i-1][j-'A'].abbreviatedCellText() + "|"; 
+				}
+			}
+			sheet += "\n";
+		}
+
+		return sheet;
+	}
 }

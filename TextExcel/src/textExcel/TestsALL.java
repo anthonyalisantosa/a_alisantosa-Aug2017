@@ -316,7 +316,6 @@ public class TestsALL
         public void testLowerCaseCellAssignment()
         {
             String text = "Cell";
-            grid.processCommand("b5 = \"" + text + "\"");
             Cell cell = grid.getCell(new TestLocation(4, 1));
             assertEquals("cell text", Helper.format(text), cell.abbreviatedCellText());
             assertEquals("inspection text", "\"" + text + "\"", cell.fullCellText());
