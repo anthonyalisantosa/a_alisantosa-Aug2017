@@ -19,7 +19,7 @@ public class SpreadsheetLocation implements Location
     @Override
     public int getCol()
     {
-        return cellName.charAt(0) - 65;
+        return cellName.toLowerCase().charAt(0) - 'a';
     }
 
 }

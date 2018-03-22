@@ -33,7 +33,8 @@ public class Spreadsheet implements Grid
 		}else {
 			SpreadsheetLocation locz = new SpreadsheetLocation(konfliktz[0]);
 			if(command.indexOf("=") >= 0) {
-				cells[locz.getRow()][locz.getCol()] = new TextCell(konfliktz[2]);
+				String[] args = command.split(" = ", 2);
+				cells[locz.getRow()][locz.getCol()] = new TextCell(args[1]);
 				return getGridText();
 			}else if(command.toLowerCase().charAt(0) >= 'a' && command.toLowerCase().charAt(0) <= 'l'){
 				return getCell(locz).fullCellText();
