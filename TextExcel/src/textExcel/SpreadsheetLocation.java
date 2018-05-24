@@ -10,12 +10,14 @@ public class SpreadsheetLocation implements Location
 		this.cellName = cellName;
 	}
 	
+	//Gets number of rows (second character)
     @Override
     public int getRow()
     {
         return Integer.parseInt(cellName.substring(1)) - 1;
     }
 
+    //Gets number of columns (first character)
     @Override
     public int getCol()
     {
